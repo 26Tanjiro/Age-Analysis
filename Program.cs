@@ -8,81 +8,88 @@
             int yearofbirth = Convert.ToInt32(Console.ReadLine());
 
             int age = 2024 - yearofbirth;
-            string generation= "";
-            string stage= "";
+            string stage= StageofPerson(age);
 
-            Generation(age,generation);
-            StageofPerson(age, stage,generation);
+           string generation= Generation(age);          
+           
+            Console.WriteLine($"{age} years old, {generation}, {stage}");
         }
-        public static void Generation(int age, string generation)
+
+        public static string Generation(int age)
         {
             if (age >= 79 && age <= 96)
             {
-                generation = "The Silent Generation";
+                return "The Silent Generation";
             }
             else if (age >= 60 && age <= 78)
             {
-                generation = "Baby Boomers";
+                return "Baby Boomers";
             }
             else if (age >= 44 && age <= 59)
             {
-                generation = "Gen X";
+                return "Gen X";
             }
             else if (age >= 28 && age <= 43)
             {
-                generation = "Millenials";
+                return "Millennials";
             }
             else if (age >= 12 && age <= 27)
             {
-                generation = "Gen Z";
+                return "Gen Z";
             }
             else if (age >= 0 && age <= 11)
             {
-                generation = "Gen Alpha";
+                return "Gen Alpha";
             }
-
+            else
+            {
+                return "Unknown Generation";
+            }
         }
-        public static void StageofPerson(int age, string stage, string generation)
+
+        public static string StageofPerson(int age)
         {
             if (age >= 0 && age <= 3)
             {
-                stage = "Infant";
+                return "Infant";
             }
             else if (age >= 4 && age <= 6)
             {
-                stage = "Early Childhood";
+                return "Early Childhood";
             }
             else if (age == 7 || age == 8)
             {
-                stage = "Middle Childhood";
+                return "Middle Childhood";
             }
             else if (age >= 9 && age <= 11)
             {
-                stage = "Late Childhood";
+                return "Late Childhood";
             }
             else if (age >= 12 && age <= 20)
             {
-                stage = "Adolescence";
+                return "Adolescence";
             }
             else if (age >= 21 && age <= 35)
             {
-                stage = "Early Adulthood";
+                return "Early Adulthood";
             }
             else if (age >= 36 && age <= 50)
             {
-                stage = "Midlife";
+                return "Midlife";
             }
             else if (age >= 51 && age <= 80)
             {
-                stage = "Mature Adulthood";
+                return "Mature Adulthood";
             }
             else if (age > 80)
-            {
-                stage = "Late Adulthood";
+            { 
+                return "Late Adulthood";
             }
-
-            Console.WriteLine($"{age} years old, {generation}, {stage}");
-
+            else
+            {
+                return "Unknown Stage";
+            }
         }
+           
     }
 }
